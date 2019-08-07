@@ -1,9 +1,10 @@
 class Movie {
-    constructor(title, description, genre, posterURL) {
+    constructor(title, description, genre, poster, movieId) {
         this.title = title
         this.description = description
         this.genre = genre
-        this.posterURL = posterURL
+        this.poster = poster
+        this.movieId = movieId
     }
 }
 

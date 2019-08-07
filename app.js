@@ -1,49 +1,26 @@
 const express = require('express')
 const app = express()
+const path = require('path')
+const multer = require('multer');
 const mustacheExpress = require('mustache-express')
 const PORT = 3000
-const Movie = require('./models/movies')
+
+const VIEWS_PATH = path.join(__dirname, '/views')
 
 app.use(express.urlencoded())
 app.use(express.static('styles'))
 
-app.engine('mustache', mustacheExpress())
-app.set('views', './views')
+app.engine('mustache',mustacheExpress(VIEWS_PATH + '/partials','.mustache'))
+app.set('views', VIEWS_PATH)
 app.set('view engine', 'mustache')
+
+const moviesRouter = require('./routes/movies')
+app.use('/movies', moviesRouter)
 
 global.movies = []
 
-// Main Page
-app.get('/', (req,res) => {
-    res.render('index', {movies: movies})
-})
-
-app.post('/add-movie',(req,res) => {
-    let title = req.body.title
-    let description = req.body.description
-    let genre = req.body.genre
-    let posterURL = req.body.posterURL
-    let movie = new Movie(title, description, genre, posterURL)
-
-    movies.push(movie)
-
-    console.log(movie)
-    console.log(movie.title)
-    console.log(movie.description)
-    console.log(movie.genre)
-    console.log(movie.posterURL)
-    res.redirect('/')
-
-})
-
-app.post('/delete-movie', (req,res) => {
-    let movieName = req.body.movieName
-    movies = movies.filter(movie => {
-        movie.name != movieName
-    })
-
-    res.redirect('/')
-
+app.get('/api/movies', (req,res) => {
+    res.json(movies)
 })
 
 app.listen(PORT, () => {

@@ -6,7 +6,6 @@ body {
 
 #title-header {
     display: flex;
-    justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #3D9970;
@@ -14,20 +13,49 @@ body {
     text-shadow: 2px 2px 0 black;
     border-bottom: 2px solid black;
     margin-bottom: 20px;
-}
-
-#title-header h1 {
-    margin: 0;
+    width: 100%;
     padding: 20px 0 20px 0;
-    font-size: 3em;
 }
 
-#adding-trips {
+#title-header .filler {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+}
+#title-header h1 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-size: 3em;
+    flex: 20;
+}
+
+#title-header form {
+    flex: 1;
+    margin-right: 20px;
+}
+
+#title-header form input {
+    outline: none;
+    border: none;
+    background-color: #3D9970;
+    color: white;
+    text-shadow: 2px 2px 0 black;
+    font-size: 1.2em;
+}
+
+#input-containers {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#adding-movies {
     display: flex;
     justify-content: center;
 }
 
-#adding-trips-form {
+#adding-movies-form {
     background-color: #3D9970;
     display: flex;
     flex-direction: column;
@@ -37,30 +65,70 @@ body {
     padding: 15px;
 }
 
-#adding-trips-form * {
+#adding-movies-form * {
     margin: 5px;
-    font-size: 1em;
-    color: white;
 }
 
-#adding-trips-form input[type=date], #adding-trips-form input[type=text] {
-    color: black;
+#adding-movies-form input[type=text] {
     text-align: center;
     background-color: white;
 }
 
-#adding-trips-form label {
-    font-size: 1em;
-    color: white;
+#searching-movie-title {
+    display: flex;
+    justify-content: center;
 }
 
-#trips-list {
+#searching-movie-title-form {
+    background-color: #3D9970;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#searching-movie-title-form * {
+    margin: 5px;
+}
+
+#searching-movie-title-form input[type=text] {
+    text-align: center;
+    background-color: white;
+}
+
+#searching-movie-genre {
+    display: flex;
+    justify-content: center;
+}
+
+#searching-movie-genre-form {
+    background-color: #3D9970;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#searching-movie-genre-form * {
+    margin: 5px;
+}
+
+#searching-movie-genre-form input[type=text] {
+    text-align: center;
+    background-color: white;
+}
+
+#movies-list {
     display: flex;
     flex-wrap: wrap;
     padding: 30px;
 }
 
-.trip-information {
+.movie-information {
     display: flex;
     flex-direction: column;
     background-color: #3D9970;
@@ -72,7 +140,7 @@ body {
     justify-content: space-between;
 }
 
-.trip-titles {
+.movie-titles {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: white;
@@ -80,8 +148,8 @@ body {
     font-size: 2em;
 }
 
-.trip-images {
-    width: 95%;
+.movie-poster {
+    width: 100%;
     height: auto;
     padding: 16px;
     border: 2px solid black;
@@ -89,7 +157,7 @@ body {
     background-color: rgba(255,255,255,.4);
 }
 
-.trip-dates {
+.movie-description, .movie-genre {
     margin-top: 10px;
     font-size: 1em;
     color: white;
@@ -101,17 +169,18 @@ body {
     font-size: 1.2em;
 }
 
-.departing, .returning {
-    flex: 40;
-}
-
-.filler {
-    flex: 18;
-}
-
-.trip-dates input {
+.movie-information input {
     outline-color: #39CCCC;
     background-color: rgba(255,255,255,.4);
     border-radius: 10px;
     flex: 1;
+}
+
+.span-header {
+    color: white;
+    text-shadow: 2px 2px 0 black;
+    font-size: 1.2em;
+    background-color: rgba(255,255,255,.2);
+    border-radius: 16px;
+    padding: 4px;
 }

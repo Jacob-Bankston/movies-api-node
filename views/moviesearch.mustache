@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="/styles.css" />
         <title>Movies</title>
     </head>
     <body>
@@ -14,21 +14,8 @@
             <input type="submit" value="Home" />
         </form>
     </div>
-    <div id="input-containers">
-        <div id="adding-movies">
-            <form id="adding-movies-form" action="/movies" method="POST">
-                <span class="span-header">Add a Movie!</span>
-                <input type="text" name="title" placeholder="Movie Title" />
-                <input type="text" name="description" placeholder="Movie Description" />
-                <input type="text" name="genre" placeholder="Movie Genre" />
-                {{! <input type="text" name="poster" placeholder="Movie Poster" /> }}
-                <input type="file" name="poster" accept="image/*" />
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
-    </div>
     <div id="movies-list">
-        {{#movies}}
+        {{#newList}}
             <div class="movie-information">
                 <form id="searching-movie-title-form" action="/movies/{{movieId}}" method="GET">
                     <input type="submit" value="Movie Details" />
@@ -44,7 +31,7 @@
                     <input type="hidden" name="movieTitle" value="{{movieId}}" />
                 </form>
             </div>
-        {{/movies}}
+        {{/newList}}
     </div>
     </body>
 </html>
